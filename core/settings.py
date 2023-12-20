@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lbt)e*km#ubrunzd#jhxs*98$fr2!47sjn4(iy7o!vtfn-&*%n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,6 +82,13 @@ DATABASES = {
     }
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://diplom-production-8ff1.up.railway.app/',
+
+    'http://0.0.0.0:8000',
+    'http://127.0.0.1:8000',
+
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
