@@ -83,7 +83,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://diplom-production-8ff1.up.railway.app/',
+    'https://diplom-production-8ff1.up.railway.app',
 
     'http://0.0.0.0:8000',
     'http://127.0.0.1:8000',
