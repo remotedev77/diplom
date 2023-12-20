@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lbt)e*km#ubrunzd#jhxs*98$fr2!47sjn4(iy7o!vtfn-&*%n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['diplom-production-8ff1.up.railway.app']
+ALLOWED_HOSTS = ['diplom-production-8ff1.up.railway.app','127.0.0.1']
 
 
 # Application definition
@@ -76,11 +76,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default='postgresql://postgres:E6ed34F6*fGGAf61dGBBaggBE3Dff41c@roundhouse.proxy.rlwy.net:12969/railway',
+        conn_max_age=1800
+    )
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 CSRF_TRUSTED_ORIGINS = [
     'https://diplom-production-8ff1.up.railway.app',
